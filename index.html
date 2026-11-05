@@ -538,12 +538,12 @@
     var phonesHtml = highlight(r.phones, queryTokens);
     var idHtml = highlight(r.id, queryTokens);
     
-    // Обработка URL сайта (добавляем https:// если его нет)
+    // Обработка URL сайта (добавляем http://, так как поддомены Ростехнадзора не имеют SSL)
     var siteUrl = r.site ? r.site.replace(/^https?:\/\//, '') : '';
     var siteHtml = '';
     if (siteUrl) {
       var siteHighlight = highlight(siteUrl, queryTokens);
-      siteHtml = '<div class="info-item" title="Веб-сайт">🌐 <a href="https://' + siteUrl + '" target="_blank" rel="noopener">' + siteHighlight + '</a></div>';
+      siteHtml = '<div class="info-item" title="Веб-сайт">🌐 <a href="http://' + siteUrl + '" target="_blank" rel="noopener">' + siteHighlight + '</a></div>';
     }
 
     var rowInfo = '';
